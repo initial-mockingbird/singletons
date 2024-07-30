@@ -1,5 +1,5 @@
 name:           singletons-th
-version:        3.4
+version:        3.3
 cabal-version:  1.24
 synopsis:       A framework for generating singleton types
 homepage:       http://www.github.com/goldfirere/singletons
@@ -8,7 +8,7 @@ author:         Richard Eisenberg <rae@cs.brynmawr.edu>, Jan Stolarek <jan.stola
 maintainer:     Ryan Scott <ryan.gl.scott@gmail.com>
 bug-reports:    https://github.com/goldfirere/singletons/issues
 stability:      experimental
-tested-with:    GHC == 9.10.1
+tested-with:    GHC == 9.8.3
 extra-source-files: README.md, CHANGES.md
 license:        BSD3
 license-file:   LICENSE
@@ -40,26 +40,26 @@ description:
 
 source-repository this
   type:     git
-  location: https://github.com/goldfirere/singletons.git
+  location: https://github.com/initial-mockingbird/singletons.git
   subdir:   singletons-th
   tag:      v3.1.2
 
 source-repository head
   type:     git
-  location: https://github.com/goldfirere/singletons.git
+  location: https://github.com/initial-mockingbird/singletons.git
   subdir:   singletons-th
   branch:   master
 
 library
   hs-source-dirs:     src
-  build-depends:      base             >= 4.20 && < 4.21,
+  build-depends:      base             >= 4.19 && < 4.20,
                       containers       >= 0.5,
                       mtl              >= 2.2.1 && < 2.4,
                       ghc-boot-th,
-                      singletons       == 3.0.*,
+                      singletons       >= 3.0 && < 3.1,
                       syb              >= 0.4,
-                      template-haskell >= 2.22 && < 2.23,
-                      th-desugar       >= 1.18 && < 1.19,
+                      template-haskell >= 2.21 && < 2.22,
+                      th-desugar       >= 1.16 && < 1.17,
                       th-orphans       >= 0.13.11 && < 0.14,
                       transformers     >= 0.5.2
   default-language:   GHC2021

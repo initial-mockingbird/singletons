@@ -5,6 +5,9 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 
+{-# OPTIONS_GHC -ddump-splices #-}
+{-# OPTIONS_GHC -ddump-to-file #-}
+
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Control.Applicative.Singletons

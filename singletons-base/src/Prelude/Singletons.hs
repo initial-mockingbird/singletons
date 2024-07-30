@@ -1,6 +1,7 @@
 {-# LANGUAGE ExplicitNamespaces #-}
 {-# LANGUAGE NoStarIsType #-}
-
+{-# OPTIONS_GHC -ddump-splices #-}
+{-# OPTIONS_GHC -ddump-to-file #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Prelude.Singletons

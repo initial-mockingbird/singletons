@@ -3,7 +3,8 @@
 {-# LANGUAGE TypeAbstractions #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
-
+{-# OPTIONS_GHC -ddump-splices #-}
+{-# OPTIONS_GHC -ddump-to-file #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.Semigroup.Singletons.Internal.Disambiguation

@@ -1,5 +1,6 @@
 {-# LANGUAGE ExplicitNamespaces #-}
-
+{-# OPTIONS_GHC -ddump-splices #-}
+{-# OPTIONS_GHC -ddump-to-file #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.List.Singletons

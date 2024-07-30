@@ -1,5 +1,6 @@
 {-# LANGUAGE TemplateHaskellQuotes #-}
-
+{-# OPTIONS_GHC -ddump-splices #-}
+{-# OPTIONS_GHC -ddump-to-file #-}
 {- Data/Singletons/Prelude/Util.hs
 
 (c) Richard Eisenberg 2013
