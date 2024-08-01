@@ -58,7 +58,7 @@ import Data.Semigroup.Singletons.Internal.Wrappers hiding
         GetFirst, sGetFirst, GetFirstSym0, GetFirstSym1, GetFirstSym0KindInference,
         GetLast,  sGetLast,  GetLastSym0,  GetLastSym1, GetLastSym0KindInference)
 import Data.Singletons.Base.Instances
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import GHC.Base.Singletons
 import GHC.Num.Singletons

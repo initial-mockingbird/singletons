@@ -23,7 +23,7 @@ module Data.Singletons.Base.Instances (
   ) where
 
 import Data.Singletons
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import Data.Kind (Type)
 import qualified GHC.Base

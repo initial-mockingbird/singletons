@@ -16,34 +16,7 @@
 ----------------------------------------------------------------------------
 
 module Data.Singletons.TH (
-  -- * Primary Template Haskell generation functions
-  singletons, singletonsOnly, genSingletons,
-  promote, promoteOnly, genDefunSymbols, genPromotions,
 
-  -- ** Functions to generate equality instances
-  promoteEqInstances, promoteEqInstance,
-  singEqInstances, singEqInstance,
-  singDecideInstances, singDecideInstance,
-
-  -- ** Functions to generate 'Ord' instances
-  promoteOrdInstances, promoteOrdInstance,
-  singOrdInstances, singOrdInstance,
-
-  -- ** Functions to generate 'Bounded' instances
-  promoteBoundedInstances, promoteBoundedInstance,
-  singBoundedInstances, singBoundedInstance,
-
-  -- ** Functions to generate 'Enum' instances
-  promoteEnumInstances, promoteEnumInstance,
-  singEnumInstances, singEnumInstance,
-
-  -- ** Functions to generate 'Show' instances
-  promoteShowInstances, promoteShowInstance,
-  singShowInstances, singShowInstance,
-  showSingInstances, showSingInstance,
-
-  -- ** Utility functions
-  singITyConInstances, singITyConInstance,
 
   -- * Basic singleton definitions
   module Data.Singletons,
@@ -58,8 +31,5 @@ module Data.Singletons.TH (
 
 import Data.Singletons
 import Data.Singletons.Decide
-
-import Data.Singletons.TH.Promote
-import Data.Singletons.TH.Single
 import Data.Singletons.TH.SuppressUnusedWarnings
 

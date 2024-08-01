@@ -38,7 +38,6 @@ import Data.Ord.Singletons
 import Data.Semigroup.Singletons hiding (SSum(..))
 import Data.Singletons.Base.Instances (SList(..), (:@#@$), NilSym0)
 import Data.Singletons.TH
-import Data.Singletons.TH.Options
 import Data.Traversable.Singletons
 import Data.Kind (Type)
 import qualified Data.Type.Equality

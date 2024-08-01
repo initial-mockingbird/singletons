@@ -47,7 +47,7 @@ module Data.Singletons.Base.Enum (
 import Data.Eq.Singletons
 import Data.Ord.Singletons
 import Data.Singletons.Base.Instances
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import GHC.Base.Singletons
 import GHC.Num.Singletons

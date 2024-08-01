@@ -47,7 +47,7 @@ import Data.Eq.Singletons
 import Data.Ord (Down(..))
 import Data.Semigroup.Singletons.Internal.Classes
 import Data.Singletons.Base.Instances
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import Data.Kind (Type)
 import qualified Data.Type.Equality

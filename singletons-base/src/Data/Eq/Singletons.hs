@@ -35,7 +35,7 @@ import Data.Bool.Singletons
 import Data.Singletons.Base.Instances
 import Data.Functor.Identity
 import GHC.Base
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 -- The imports below are only needed for Haddock purposes.
 import qualified Data.Kind as Kind ()

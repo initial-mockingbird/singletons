@@ -30,20 +30,17 @@ module Data.Proxy.Singletons (
   , AsProxyTypeOfSym0, AsProxyTypeOfSym1, AsProxyTypeOfSym2
   ) where
 
-import Control.Applicative
-import Control.Monad
+
 import Control.Monad.Singletons.Internal
 import Data.Eq.Singletons
 import Data.Monoid.Singletons
 import Data.Ord.Singletons
 import Data.Proxy
-import Data.Semigroup (Semigroup(..))
 import Data.Semigroup.Singletons.Internal.Classes
 import Data.Singletons.Decide
 import Data.Singletons.Base.Enum
 import Data.Singletons.Base.Instances
 import Data.Singletons.TH
-import Data.Singletons.TH.Options
 import Data.Type.Coercion
 import Data.Type.Equality hiding (type (==))
 import GHC.Base.Singletons

@@ -40,7 +40,6 @@ import Data.Semigroup.Singletons.Internal.Classes
 import Data.Singletons.Base.Instances hiding (FoldlSym0, sFoldl)
 import Data.Singletons.Base.Enum
 import Data.Singletons.TH
-import Data.Singletons.TH.Options
 import GHC.Base.Singletons
   hiding ( Const, ConstSym0, ConstSym1
          , Foldr, FoldrSym0, sFoldr )

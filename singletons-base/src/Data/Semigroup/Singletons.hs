@@ -70,7 +70,7 @@ import Data.Semigroup.Singletons.Internal.Classes
 import Data.Semigroup.Singletons.Internal.Wrappers
 import Data.Singletons.Base.Enum
 import Data.Singletons.Base.Instances
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import Data.Traversable.Singletons
 import GHC.Base.Singletons hiding

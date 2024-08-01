@@ -76,11 +76,8 @@ library
                       pretty,
                       singletons       >= 3.0 && < 3.1,
                       singletons-th    >= 3.3  && < 3.4,
-                      template-haskell >= 2.21 && < 2.22,
-                      text >= 1.2,
-                      th-desugar       >= 1.16 && < 1.19
+                      text >= 1.2
   default-language:   GHC2021
-  other-extensions:   TemplateHaskell
   exposed-modules:    Data.Singletons.Base.CustomStar
                       Data.Singletons.Base.Enum
                       Data.Singletons.Base.TH
@@ -120,7 +117,6 @@ library
                       Text.Show.Singletons
 
   other-modules:      Data.Singletons.Base.Instances
-                      Data.Singletons.Base.Util
 
                       Control.Monad.Singletons.Internal
                       Data.List.Singletons.Internal
@@ -141,8 +137,6 @@ library
 
   -- singletons-th re-exports
   reexported-modules: Data.Singletons.TH
-                    , Data.Singletons.TH.CustomStar
-                    , Data.Singletons.TH.Options
                     , Data.Singletons.TH.SuppressUnusedWarnings
 
   ghc-options:        -Wall -Wcompat -Wno-redundant-constraints

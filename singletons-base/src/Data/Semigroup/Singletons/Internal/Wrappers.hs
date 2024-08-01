@@ -37,7 +37,7 @@ import Data.Semigroup (Dual(..), All(..), Any(..), Sum(..), Product(..))
 import Data.Semigroup.Singletons.Internal.Classes
 import Data.Singletons.Base.Enum
 import Data.Singletons.Base.Instances
-import Data.Singletons.Base.Util
+
 import Data.Singletons.TH
 import GHC.Num.Singletons
 import Data.Kind (Type)

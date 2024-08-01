@@ -55,47 +55,14 @@ library
   build-depends:      base             >= 4.19 && < 4.20,
                       containers       >= 0.5,
                       mtl              >= 2.2.1 && < 2.4,
-                      ghc-boot-th,
                       singletons       >= 3.0 && < 3.1,
                       syb              >= 0.4,
-                      template-haskell >= 2.21 && < 2.22,
-                      th-desugar       >= 1.16 && < 1.19,
-                      th-orphans       >= 0.13.11 && < 0.14,
                       transformers     >= 0.5.2
   default-language:   GHC2021
-  other-extensions:   TemplateHaskellQuotes
   exposed-modules:    Data.Singletons.TH
-                      Data.Singletons.TH.CustomStar
-                      Data.Singletons.TH.Options
                       Data.Singletons.TH.SuppressUnusedWarnings
 
-  other-modules:      Data.Singletons.TH.Deriving.Bounded
-                      Data.Singletons.TH.Deriving.Enum
-                      Data.Singletons.TH.Deriving.Eq
-                      Data.Singletons.TH.Deriving.Foldable
-                      Data.Singletons.TH.Deriving.Functor
-                      Data.Singletons.TH.Deriving.Infer
-                      Data.Singletons.TH.Deriving.Ord
-                      Data.Singletons.TH.Deriving.Show
-                      Data.Singletons.TH.Deriving.Traversable
-                      Data.Singletons.TH.Deriving.Util
-                      Data.Singletons.TH.Names
-                      Data.Singletons.TH.Partition
-                      Data.Singletons.TH.Promote
-                      Data.Singletons.TH.Promote.Defun
-                      Data.Singletons.TH.Promote.Monad
-                      Data.Singletons.TH.Promote.Type
-                      Data.Singletons.TH.Single
-                      Data.Singletons.TH.Single.Data
-                      Data.Singletons.TH.Single.Decide
-                      Data.Singletons.TH.Single.Defun
-                      Data.Singletons.TH.Single.Fixity
-                      Data.Singletons.TH.Single.Monad
-                      Data.Singletons.TH.Single.Ord
-                      Data.Singletons.TH.Single.Type
-                      Data.Singletons.TH.Syntax
-                      Data.Singletons.TH.Syntax.LocalVar
-                      Data.Singletons.TH.Util
+  other-modules:      
 
   -- singletons re-exports
   reexported-modules: Data.Singletons

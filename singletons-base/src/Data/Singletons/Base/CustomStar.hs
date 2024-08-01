@@ -19,7 +19,6 @@
 ----------------------------------------------------------------------------
 
 module Data.Singletons.Base.CustomStar (
-  singletonStar,
 
   module Data.Bool.Singletons,
   module Data.Eq.Singletons,
@@ -29,4 +28,3 @@ module Data.Singletons.Base.CustomStar (
 import Data.Bool.Singletons
 import Data.Eq.Singletons
 import Data.Singletons.Base.TH
-import Data.Singletons.TH.CustomStar

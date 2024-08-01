@@ -29,7 +29,6 @@ module Data.Functor.Compose.Singletons (
   GetComposeSym0, GetComposeSym1
   ) where
 
-import Control.Applicative
 import Control.Applicative.Singletons
 import Data.Eq.Singletons
 import Data.Foldable.Singletons
@@ -40,7 +39,6 @@ import Data.Kind
 import Data.Semigroup.Singletons
 import Data.Singletons.Base.Instances (SList(..), (:@#@$), NilSym0)
 import Data.Singletons.TH
-import Data.Singletons.TH.Options
 import Data.Traversable.Singletons
 import qualified Data.Type.Equality 
 import qualified Data.Singletons.Decide 
