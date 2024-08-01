@@ -30,7 +30,6 @@
           # The base package set representing a specific GHC version.
           # By default, this is pkgs.haskellPackages.
           # You may also create your own. See https://community.flake.parts/haskell-flake/package-set
-          #basePackages = pkgs.haskellPackages // inputs.ghc-wasm.packages;
           basePackages = pkgs.haskell.packages.ghc982;
           
           devShell = {

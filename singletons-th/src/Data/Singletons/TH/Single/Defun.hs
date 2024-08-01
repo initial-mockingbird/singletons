@@ -13,6 +13,7 @@
 
 module Data.Singletons.TH.Single.Defun (singDefuns) where
 
+
 import Control.Monad
 import Data.Singletons.TH.Names
 import Data.Singletons.TH.Options
@@ -22,7 +23,7 @@ import Data.Singletons.TH.Single.Type
 import Data.Singletons.TH.Util
 import Language.Haskell.TH.Desugar
 import Language.Haskell.TH.Syntax
-
+import Data.Foldable (foldl')
 -- Given the Name of something, take the defunctionalization symbols for its
 -- promoted counterpart and create SingI{,1,2} instances for them. As a concrete
 -- example, if you have:

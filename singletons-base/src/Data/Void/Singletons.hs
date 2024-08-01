@@ -1,8 +1,9 @@
 {-# LANGUAGE DataKinds #-}
-{-# LANGUAGE TemplateHaskell #-}
+
 {-# LANGUAGE TypeAbstractions #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE LambdaCase #-}
 {-# OPTIONS_GHC -ddump-splices #-}
 {-# OPTIONS_GHC -ddump-to-file #-}
 -----------------------------------------------------------------------------
@@ -39,10 +40,39 @@ module Data.Void.Singletons (
 import Data.Singletons
 import Data.Singletons.Base.Instances
 import Data.Singletons.TH
+import Data.Kind (Type)
 
-$(singletonsOnly [d|
-  -- -| Since 'Void' values logically don't exist, this witnesses the
-  -- logical reasoning tool of \"ex falso quodlibet\".
-  absurd :: Void -> a
-  absurd a = case a of {}
-  |])
+type family LamCases_6989586621679166455_aEKQ (a6989586621679166454 :: Void) a_6989586621679166457_aEKS where
+data LamCases_6989586621679166455Sym0 (a6989586621679166454 :: Void) a_69895866216791664576989586621679166458
+  where
+    LamCases_6989586621679166455Sym0KindInference :: SameKind (Apply (LamCases_6989586621679166455Sym0 a6989586621679166454) arg_aEKT) (LamCases_6989586621679166455Sym1 a6989586621679166454 arg_aEKT) =>
+                                                      LamCases_6989586621679166455Sym0 a6989586621679166454 a_69895866216791664576989586621679166458
+type instance Apply @_ @_ (LamCases_6989586621679166455Sym0 a6989586621679166454) a_69895866216791664576989586621679166458 = LamCases_6989586621679166455_aEKQ a6989586621679166454 a_69895866216791664576989586621679166458
+instance SuppressUnusedWarnings (LamCases_6989586621679166455Sym0 a6989586621679166454) where
+  suppressUnusedWarnings
+    = snd ((,) LamCases_6989586621679166455Sym0KindInference ())
+type family LamCases_6989586621679166455Sym1 (a6989586621679166454 :: Void) a_69895866216791664576989586621679166458 where
+  LamCases_6989586621679166455Sym1 a6989586621679166454 a_69895866216791664576989586621679166458 = LamCases_6989586621679166455_aEKQ a6989586621679166454 a_69895866216791664576989586621679166458
+type AbsurdSym0 :: (~>) Void a_aEKI
+data AbsurdSym0 :: (~>) Void a_aEKI
+  where
+    AbsurdSym0KindInference :: SameKind (Apply AbsurdSym0 arg_aEKM) (AbsurdSym1 arg_aEKM) =>
+                                AbsurdSym0 a6989586621679166453
+type instance Apply @Void @a_aEKI AbsurdSym0 a6989586621679166453 = Absurd a6989586621679166453
+instance SuppressUnusedWarnings AbsurdSym0 where
+  suppressUnusedWarnings = snd ((,) AbsurdSym0KindInference ())
+type AbsurdSym1 :: Void -> a_aEKI
+type family AbsurdSym1 @a_aEKI (a6989586621679166453 :: Void) :: a_aEKI where
+  AbsurdSym1 a6989586621679166453 = Absurd a6989586621679166453
+type Absurd :: Void -> a_aEKI
+type family Absurd @a_aEKI (a_aEKL :: Void) :: a_aEKI where
+  Absurd a_aEKO = Apply (LamCases_6989586621679166455Sym0 a_aEKO) a_aEKO
+sAbsurd ::
+  (forall (t_aEKU :: Void).
+    Sing t_aEKU -> Sing (Absurd t_aEKU :: a_aEKI) :: Type)
+sAbsurd (sA :: Sing a_aEKO)
+  = applySing
+      (singFun1 @(LamCases_6989586621679166455Sym0 a_aEKO) (\case)) sA
+instance SingI (AbsurdSym0 :: (~>) Void a_aEKI) where
+  sing = singFun1 @AbsurdSym0 sAbsurd
+

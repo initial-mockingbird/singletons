@@ -1,5 +1,5 @@
 {-# LANGUAGE DataKinds #-}
-{-# LANGUAGE TemplateHaskell #-}
+
 {-# LANGUAGE TypeAbstractions #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -164,7 +164,92 @@ type family TypeError (x :: PErrorMessage) :: a where
 sTypeError :: HasCallStack => Sing err -> Sing (TypeError err)
 sTypeError = typeError . fromSing
 
-$(genDefunSymbols [''ErrorMessage', ''TypeError])
+type TextSym0 :: forall (s_a3g2u :: Type). (~>) s_a3g2u (ErrorMessage' s_a3g2u)
+data TextSym0 :: (~>) s_a3g2u (ErrorMessage' s_a3g2u)
+  where
+    TextSym0KindInference :: SameKind (Apply TextSym0 arg_a3gnj) (TextSym1 arg_a3gnj) =>
+                              TextSym0 a6989586621679787726
+type instance Apply @s_a3g2u @(ErrorMessage' s_a3g2u) TextSym0 a6989586621679787726 = 'Text a6989586621679787726
+instance SuppressUnusedWarnings TextSym0 where
+  suppressUnusedWarnings = snd ((,) TextSym0KindInference ())
+type TextSym1 :: forall (s_a3g2u :: Type). s_a3g2u
+                                            -> ErrorMessage' s_a3g2u
+type family TextSym1 @(s_a3g2u :: Type) (a6989586621679787726 :: s_a3g2u) :: ErrorMessage' s_a3g2u where
+  TextSym1 a6989586621679787726 = 'Text a6989586621679787726
+type ShowTypeSym0 :: forall (s_a3g2u :: Type)
+                            (t_a3g3s :: Type). (~>) t_a3g3s (ErrorMessage' s_a3g2u)
+data ShowTypeSym0 :: (~>) t_a3g3s (ErrorMessage' s_a3g2u)
+  where
+    ShowTypeSym0KindInference :: SameKind (Apply ShowTypeSym0 arg_a3gnl) (ShowTypeSym1 arg_a3gnl) =>
+                                  ShowTypeSym0 a6989586621679787728
+type instance Apply @t_a3g3s @(ErrorMessage' s_a3g2u) ShowTypeSym0 a6989586621679787728 = 'ShowType a6989586621679787728
+instance SuppressUnusedWarnings ShowTypeSym0 where
+  suppressUnusedWarnings = snd ((,) ShowTypeSym0KindInference ())
+type ShowTypeSym1 :: forall (s_a3g2u :: Type)
+                            (t_a3g3s :: Type). t_a3g3s -> ErrorMessage' s_a3g2u
+type family ShowTypeSym1 @(s_a3g2u :: Type) @(t_a3g3s :: Type) (a6989586621679787728 :: t_a3g3s) :: ErrorMessage' s_a3g2u where
+  ShowTypeSym1 a6989586621679787728 = 'ShowType a6989586621679787728
+type (:<>:@#@$) :: forall (s_a3g2u :: Type). (~>) (ErrorMessage' s_a3g2u) ((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u))
+data (:<>:@#@$) :: (~>) (ErrorMessage' s_a3g2u) ((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u))
+  where
+    (::<>:@#@$###) :: SameKind (Apply (:<>:@#@$) arg_a3gnn) ((:<>:@#@$$) arg_a3gnn) =>
+                      (:<>:@#@$) a6989586621679787730
+type instance Apply @(ErrorMessage' s_a3g2u) @((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)) (:<>:@#@$) a6989586621679787730 = (:<>:@#@$$) a6989586621679787730
+instance SuppressUnusedWarnings (:<>:@#@$) where
+  suppressUnusedWarnings = snd ((,) (::<>:@#@$###) ())
+infixl 6 :<>:@#@$
+type (:<>:@#@$$) :: forall (s_a3g2u :: Type). ErrorMessage' s_a3g2u
+                                              -> (~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)
+data (:<>:@#@$$) (a6989586621679787730 :: ErrorMessage' s_a3g2u) :: (~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)
+  where
+    (::<>:@#@$$###) :: SameKind (Apply ((:<>:@#@$$) a6989586621679787730) arg_a3gnn) ((:<>:@#@$$$) a6989586621679787730 arg_a3gnn) =>
+                        (:<>:@#@$$) a6989586621679787730 a6989586621679787731
+type instance Apply @(ErrorMessage' s_a3g2u) @(ErrorMessage' s_a3g2u) ((:<>:@#@$$) a6989586621679787730) a6989586621679787731 = '(:<>:) a6989586621679787730 a6989586621679787731
+instance SuppressUnusedWarnings ((:<>:@#@$$) a6989586621679787730) where
+  suppressUnusedWarnings = snd ((,) (::<>:@#@$$###) ())
+infixl 6 :<>:@#@$$
+type (:<>:@#@$$$) :: forall (s_a3g2u :: Type). ErrorMessage' s_a3g2u
+                                                -> ErrorMessage' s_a3g2u -> ErrorMessage' s_a3g2u
+type family (:<>:@#@$$$) @(s_a3g2u :: Type) (a6989586621679787730 :: ErrorMessage' s_a3g2u) (a6989586621679787731 :: ErrorMessage' s_a3g2u) :: ErrorMessage' s_a3g2u where
+  (:<>:@#@$$$) a6989586621679787730 a6989586621679787731 = '(:<>:) a6989586621679787730 a6989586621679787731
+infixl 6 :<>:@#@$$$
+type (:$$:@#@$) :: forall (s_a3g2u :: Type). (~>) (ErrorMessage' s_a3g2u) ((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u))
+data (:$$:@#@$) :: (~>) (ErrorMessage' s_a3g2u) ((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u))
+  where
+    (::$$:@#@$###) :: SameKind (Apply (:$$:@#@$) arg_a3gnq) ((:$$:@#@$$) arg_a3gnq) =>
+                      (:$$:@#@$) a6989586621679787733
+type instance Apply @(ErrorMessage' s_a3g2u) @((~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)) (:$$:@#@$) a6989586621679787733 = (:$$:@#@$$) a6989586621679787733
+instance SuppressUnusedWarnings (:$$:@#@$) where
+  suppressUnusedWarnings = snd ((,) (::$$:@#@$###) ())
+infixl 5 :$$:@#@$
+type (:$$:@#@$$) :: forall (s_a3g2u :: Type). ErrorMessage' s_a3g2u
+                                              -> (~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)
+data (:$$:@#@$$) (a6989586621679787733 :: ErrorMessage' s_a3g2u) :: (~>) (ErrorMessage' s_a3g2u) (ErrorMessage' s_a3g2u)
+  where
+    (::$$:@#@$$###) :: SameKind (Apply ((:$$:@#@$$) a6989586621679787733) arg_a3gnq) ((:$$:@#@$$$) a6989586621679787733 arg_a3gnq) =>
+                        (:$$:@#@$$) a6989586621679787733 a6989586621679787734
+type instance Apply @(ErrorMessage' s_a3g2u) @(ErrorMessage' s_a3g2u) ((:$$:@#@$$) a6989586621679787733) a6989586621679787734 = '(:$$:) a6989586621679787733 a6989586621679787734
+instance SuppressUnusedWarnings ((:$$:@#@$$) a6989586621679787733) where
+  suppressUnusedWarnings = snd ((,) (::$$:@#@$$###) ())
+infixl 5 :$$:@#@$$
+type (:$$:@#@$$$) :: forall (s_a3g2u :: Type). ErrorMessage' s_a3g2u
+                                                -> ErrorMessage' s_a3g2u -> ErrorMessage' s_a3g2u
+type family (:$$:@#@$$$) @(s_a3g2u :: Type) (a6989586621679787733 :: ErrorMessage' s_a3g2u) (a6989586621679787734 :: ErrorMessage' s_a3g2u) :: ErrorMessage' s_a3g2u where
+  (:$$:@#@$$$) a6989586621679787733 a6989586621679787734 = '(:$$:) a6989586621679787733 a6989586621679787734
+infixl 5 :$$:@#@$$$
+type TypeErrorSym0 :: forall (a_a3g2e :: Type). (~>) PErrorMessage a_a3g2e
+data TypeErrorSym0 :: (~>) PErrorMessage a_a3g2e
+  where
+    TypeErrorSym0KindInference :: SameKind (Apply TypeErrorSym0 arg_a3gnt) (TypeErrorSym1 arg_a3gnt) =>
+                                  TypeErrorSym0 a6989586621679787736
+type instance Apply @PErrorMessage @a_a3g2e TypeErrorSym0 a6989586621679787736 = TypeError a6989586621679787736
+instance SuppressUnusedWarnings TypeErrorSym0 where
+  suppressUnusedWarnings = snd ((,) TypeErrorSym0KindInference ())
+type TypeErrorSym1 :: forall (a_a3g2e :: Type). PErrorMessage
+                                                -> a_a3g2e
+type family TypeErrorSym1 @(a_a3g2e :: Type) (a6989586621679787736 :: PErrorMessage) :: a_a3g2e where
+  TypeErrorSym1 a6989586621679787736 = TypeError a6989586621679787736
+
 
 instance SingI (TextSym0 :: Symbol ~> PErrorMessage) where
   sing = singFun1 SText

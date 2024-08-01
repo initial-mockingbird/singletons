@@ -1,6 +1,6 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE PatternSynonyms #-}
-{-# LANGUAGE TemplateHaskell #-}
+
 {-# LANGUAGE TypeAbstractions #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -61,6 +61,7 @@ import Unsafe.Coerce
 
 import qualified Data.Text as T
 import Data.Text ( Text )
+import Data.Kind (Type)
 
 ----------------------------------------------------------------------
 ---- TypeLits singletons ---------------------------------------------
@@ -214,7 +215,19 @@ instance SSemigroup TL.Symbol where
 --   families.
 type Error :: TL.Symbol -> a
 type family Error (str :: TL.Symbol) :: a where {}
-$(genDefunSymbols [''Error])
+
+type ErrorSym0 :: forall (a_a1y8t :: Type). (~>) TL.Symbol a_a1y8t
+data ErrorSym0 :: (~>) TL.Symbol a_a1y8t
+  where
+    ErrorSym0KindInference :: SameKind (Apply ErrorSym0 arg_a1yC1) (ErrorSym1 arg_a1yC1) =>
+                              ErrorSym0 a6989586621679381174
+type instance Apply @TL.Symbol @a_a1y8t ErrorSym0 a6989586621679381174 = Error a6989586621679381174
+instance SuppressUnusedWarnings ErrorSym0 where
+  suppressUnusedWarnings = snd ((,) ErrorSym0KindInference ())
+type ErrorSym1 :: forall (a_a1y8t :: Type). TL.Symbol -> a_a1y8t
+type family ErrorSym1 @(a_a1y8t :: Type) (a6989586621679381174 :: TL.Symbol) :: a_a1y8t where
+  ErrorSym1 a6989586621679381174 = Error a6989586621679381174
+
 instance SingI (ErrorSym0 :: TL.Symbol ~> a) where
   sing = singFun1 sError
 
@@ -225,7 +238,21 @@ sError sstr = error (T.unpack (fromSing sstr))
 -- | The promotion of 'errorWithoutStackTrace'.
 type ErrorWithoutStackTrace :: TL.Symbol -> a
 type family ErrorWithoutStackTrace (str :: TL.Symbol) :: a where {}
-$(genDefunSymbols [''ErrorWithoutStackTrace])
+
+type ErrorWithoutStackTraceSym0 :: forall (a_a1yC8 :: Type). (~>) TL.Symbol a_a1yC8
+data ErrorWithoutStackTraceSym0 :: (~>) TL.Symbol a_a1yC8
+  where
+    ErrorWithoutStackTraceSym0KindInference :: SameKind (Apply ErrorWithoutStackTraceSym0 arg_a1yGr) (ErrorWithoutStackTraceSym1 arg_a1yGr) =>
+                                                ErrorWithoutStackTraceSym0 a6989586621679381448
+type instance Apply @TL.Symbol @a_a1yC8 ErrorWithoutStackTraceSym0 a6989586621679381448 = ErrorWithoutStackTrace a6989586621679381448
+instance SuppressUnusedWarnings ErrorWithoutStackTraceSym0 where
+  suppressUnusedWarnings
+    = snd ((,) ErrorWithoutStackTraceSym0KindInference ())
+type ErrorWithoutStackTraceSym1 :: forall (a_a1yC8 :: Type). TL.Symbol
+                                                              -> a_a1yC8
+type family ErrorWithoutStackTraceSym1 @(a_a1yC8 :: Type) (a6989586621679381448 :: TL.Symbol) :: a_a1yC8 where
+  ErrorWithoutStackTraceSym1 a6989586621679381448 = ErrorWithoutStackTrace a6989586621679381448
+
 instance SingI (ErrorWithoutStackTraceSym0 :: TL.Symbol ~> a) where
   sing = singFun1 sErrorWithoutStackTrace
 
@@ -236,7 +263,11 @@ sErrorWithoutStackTrace sstr = errorWithoutStackTrace (T.unpack (fromSing sstr))
 -- | The promotion of 'undefined'.
 type Undefined :: a
 type family Undefined :: a where {}
-$(genDefunSymbols [''Undefined])
+
+
+type UndefinedSym0 :: forall (a_a1yGy :: Type). a_a1yGy
+type family UndefinedSym0 @(a_a1yGy :: Type) :: a_a1yGy where
+  UndefinedSym0 = Undefined
 
 -- | The singleton for 'undefined'.
 sUndefined :: forall a. HasCallStack => Sing (Undefined @a)
@@ -251,7 +282,30 @@ sa %^ sb =
 infixr 8 %^
 
 -- Defunctionalization symbols for type-level (^)
-$(genDefunSymbols [''(TN.^)])
+
+type (^@#@$) :: (~>) Natural ((~>) Natural Natural)
+data (^@#@$) :: (~>) Natural ((~>) Natural Natural)
+  where
+    (:^@#@$###) :: SameKind (Apply (^@#@$) arg_a1yNq) ((^@#@$$) arg_a1yNq) =>
+                    (^@#@$) a6989586621679381881
+type instance Apply @Natural @((~>) Natural Natural) (^@#@$) a6989586621679381881 = (^@#@$$) a6989586621679381881
+instance SuppressUnusedWarnings (^@#@$) where
+  suppressUnusedWarnings = snd ((,) (:^@#@$###) ())
+infixr 8 ^@#@$
+type (^@#@$$) :: Natural -> (~>) Natural Natural
+data (^@#@$$) (a6989586621679381881 :: Natural) :: (~>) Natural Natural
+  where
+    (:^@#@$$###) :: SameKind (Apply ((^@#@$$) a6989586621679381881) arg_a1yNq) ((^@#@$$$) a6989586621679381881 arg_a1yNq) =>
+                    (^@#@$$) a6989586621679381881 a6989586621679381882
+type instance Apply @Natural @Natural ((^@#@$$) a6989586621679381881) a6989586621679381882 = (TN.^) a6989586621679381881 a6989586621679381882
+instance SuppressUnusedWarnings ((^@#@$$) a6989586621679381881) where
+  suppressUnusedWarnings = snd ((,) (:^@#@$$###) ())
+infixr 8 ^@#@$$
+type (^@#@$$$) :: Natural -> Natural -> Natural
+type family (^@#@$$$) (a6989586621679381881 :: Natural) (a6989586621679381882 :: Natural) :: Natural where
+  (^@#@$$$) a6989586621679381881 a6989586621679381882 = (TN.^) a6989586621679381881 a6989586621679381882
+infixr 8 ^@#@$$$
+
 instance SingI (^@#@$) where
   sing = singFun2 (%^)
 instance SingI x => SingI ((^@#@$$) x) where
@@ -281,7 +335,33 @@ sa %<=? sb = unsafeCoerce (sa %<= sb)
 infix 4 %<=?
 
 -- Defunctionalization symbols for (<=?)
-$(genDefunSymbols [''(TN.<=?)])
+
+type (<=?@#@$) :: forall (k_a1yQG :: Type). (~>) k_a1yQG ((~>) k_a1yQG Bool)
+data (<=?@#@$) :: (~>) k_a1yQG ((~>) k_a1yQG Bool)
+  where
+    (:<=?@#@$###) :: SameKind (Apply (<=?@#@$) arg_a1yUr) ((<=?@#@$$) arg_a1yUr) =>
+                      (<=?@#@$) a6989586621679382316
+type instance Apply @k_a1yQG @((~>) k_a1yQG Bool) (<=?@#@$) a6989586621679382316 = (<=?@#@$$) a6989586621679382316
+instance SuppressUnusedWarnings (<=?@#@$) where
+  suppressUnusedWarnings = snd ((,) (:<=?@#@$###) ())
+infix 4 <=?@#@$
+type (<=?@#@$$) :: forall (k_a1yQG :: Type). k_a1yQG
+                                              -> (~>) k_a1yQG Bool
+data (<=?@#@$$) (a6989586621679382316 :: k_a1yQG) :: (~>) k_a1yQG Bool
+  where
+    (:<=?@#@$$###) :: SameKind (Apply ((<=?@#@$$) a6989586621679382316) arg_a1yUr) ((<=?@#@$$$) a6989586621679382316 arg_a1yUr) =>
+                      (<=?@#@$$) a6989586621679382316 a6989586621679382317
+type instance Apply @k_a1yQG @Bool ((<=?@#@$$) a6989586621679382316) a6989586621679382317 = (TN.<=?) a6989586621679382316 a6989586621679382317
+instance SuppressUnusedWarnings ((<=?@#@$$) a6989586621679382316) where
+  suppressUnusedWarnings = snd ((,) (:<=?@#@$$###) ())
+infix 4 <=?@#@$$
+type (<=?@#@$$$) :: forall (k_a1yQG :: Type). k_a1yQG
+                                              -> k_a1yQG -> Bool
+type family (<=?@#@$$$) @(k_a1yQG :: Type) (a6989586621679382316 :: k_a1yQG) (a6989586621679382317 :: k_a1yQG) :: Bool where
+  (<=?@#@$$$) a6989586621679382316 a6989586621679382317 = (TN.<=?) a6989586621679382316 a6989586621679382317
+infix 4 <=?@#@$$$
+
+
 instance SingI ((<=?@#@$) @Natural) where
   sing = singFun2 (%<=?)
 instance SingI x => SingI ((<=?@#@$$) @Natural x) where
