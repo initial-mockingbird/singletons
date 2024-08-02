@@ -52,7 +52,7 @@
             config.haskellProjects.default.outputs.devShell
           ];
           nativeBuildInputs = 
-            [ inputs.ghc-wasm.packages.${pkgs.system}.all_9_10
+            [ inputs.ghc-wasm.packages.${pkgs.system}.all_9_8
               stack-wrapped
               pkgs.hpack
               pkgs.just

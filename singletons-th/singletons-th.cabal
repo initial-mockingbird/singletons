@@ -53,11 +53,7 @@ source-repository head
 library
   hs-source-dirs:     src
   build-depends:      base             >= 4.19 && < 4.20,
-                      containers       >= 0.5,
-                      mtl              >= 2.2.1 && < 2.4,
-                      singletons       >= 3.0 && < 3.1,
-                      syb              >= 0.4,
-                      transformers     >= 0.5.2
+                      singletons       >= 3.0 && < 3.1
   default-language:   GHC2021
   exposed-modules:    Data.Singletons.TH
                       Data.Singletons.TH.SuppressUnusedWarnings
@@ -70,4 +66,4 @@ library
                     , Data.Singletons.ShowSing
                     , Data.Singletons.Sigma
 
-  ghc-options:        -Wall -Wcompat
+  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"

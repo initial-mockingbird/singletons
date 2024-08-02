@@ -1,4 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
+import Distribution.Simple
+main = defaultMain
+{-
 module Main (main) where
 
 import Control.Monad
@@ -136,3 +139,4 @@ amendGPD gpd = gpd
         bi' = bi { otherModules = om', autogenModules = am' }
         testSuite' = testSuite { testBuildInfo = bi' }
         condTree' = condTree { condTreeData = testSuite' }
+-}
