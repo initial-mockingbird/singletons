@@ -1,9 +1,7 @@
-packages: ./singletons
-          ./singletons-th
-          ./singletons-base
-
-program-options
-  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"
+packages:
+    ./singletons
+    ./singletons-base
+    ./singletons-th
 
 source-repository-package
   type: git

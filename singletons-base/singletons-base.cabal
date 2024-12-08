@@ -145,7 +145,6 @@ library
                     , Data.Singletons.TH.Options
                     , Data.Singletons.TH.SuppressUnusedWarnings
 
-  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"
 
 test-suite singletons-base-test-suite
   type:               exitcode-stdio-1.0

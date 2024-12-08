@@ -9,33 +9,16 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed; 
       imports = [ inputs.haskell-flake.flakeModule ];
-      perSystem = { self', pkgs, config, ... }: 
-        let 
-          stack-wrapped = pkgs.symlinkJoin {
-            name = "stack"; # will be available as the usual `stack` in terminal
-            paths = [ pkgs.stack ];
-            buildInputs = [ pkgs.makeWrapper ];
-            postBuild = ''
-              wrapProgram $out/bin/stack \
-                --add-flags "\
-                  --no-nix \
-                  --system-ghc \
-                  --no-install-ghc \
-                "
-            '';
-          };
-        in {
+      perSystem = { self', pkgs, config, ... }: {
         haskellProjects.default = {
           projectFlakeName = "singletons";
           # The base package set representing a specific GHC version.
           # By default, this is pkgs.haskellPackages.
           # You may also create your own. See https://community.flake.parts/haskell-flake/package-set
           basePackages = pkgs.haskell.packages.ghc910;
-          
           devShell = {
             hlsCheck.enable = true;
             hoogle = true;
-
            };
           autoWire = [ "packages" "apps" "checks" ];
         };
@@ -53,7 +36,6 @@
           ];
           nativeBuildInputs = 
             [ inputs.ghc-wasm.packages.${pkgs.system}.all_9_10
-              stack-wrapped
               pkgs.hpack
               pkgs.just
             ];

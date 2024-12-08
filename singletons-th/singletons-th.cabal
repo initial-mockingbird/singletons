@@ -103,4 +103,3 @@ library
                     , Data.Singletons.ShowSing
                     , Data.Singletons.Sigma
 
-  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"
