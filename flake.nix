@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     haskell-flake.url = "github:srid/haskell-flake";
-    ghc-wasm.url = "git+https://gitlab.haskell.org/ghc/ghc-wasm-meta"; 
+    ghc-wasm.url = "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org";
   };
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -52,7 +52,7 @@
             config.haskellProjects.default.outputs.devShell
           ];
           nativeBuildInputs = 
-            [ inputs.ghc-wasm.packages.${pkgs.system}.all_9_8
+            [ inputs.ghc-wasm.packages.${pkgs.system}.all_9_10
               stack-wrapped
               pkgs.hpack
               pkgs.just
