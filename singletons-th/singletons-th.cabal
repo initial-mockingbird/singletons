@@ -40,15 +40,15 @@ description:
 
 source-repository this
   type:     git
-  location: https://github.com/goldfirere/singletons.git
+  location: https://github.com/initial-mockingbird/singletons.git
   subdir:   singletons-th
   tag:      v3.1.2
 
 source-repository head
   type:     git
-  location: https://github.com/goldfirere/singletons.git
+  location: https://github.com/initial-mockingbird/singletons.git
   subdir:   singletons-th
-  branch:   master
+  branch:   wasm
 
 library
   hs-source-dirs:     src
@@ -103,4 +103,4 @@ library
                     , Data.Singletons.ShowSing
                     , Data.Singletons.Sigma
 
-  ghc-options:        -Wall -Wcompat
+  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"

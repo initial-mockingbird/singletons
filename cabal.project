@@ -2,6 +2,9 @@ packages: ./singletons
           ./singletons-th
           ./singletons-base
 
+program-options
+  ghc-options: -no-hs-main -optl-mexec-model=reactor "-optl-Wl"
+
 source-repository-package
   type: git
   location: https://github.com/goldfirere/th-desugar
